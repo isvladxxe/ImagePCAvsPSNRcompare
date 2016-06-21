@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>Pure</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="PSNR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,6 +139,14 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PSNR.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="XHelper.h" />
+    <ClInclude Include="XImage.h" />
+    <ClInclude Include="XiTree.h" />
+    <ClInclude Include="XPCA.h" />
+    <ClInclude Include="XPSNR.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
