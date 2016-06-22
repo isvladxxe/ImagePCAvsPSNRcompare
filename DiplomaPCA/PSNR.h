@@ -136,7 +136,7 @@ namespace DiplomaPCA {
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->treeView1);
 			this->Name = L"PSNR";
-			this->Text = L"PSNR";
+			this->Text = L"Порівняння за PSNR";
 			this->Load += gcnew System::EventHandler(this, &PSNR::PSNR_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();

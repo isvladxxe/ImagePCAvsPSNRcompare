@@ -89,7 +89,7 @@ namespace DiplomaPCA
 	private: System::Windows::Forms::Panel^  panel2;
 	private: System::Windows::Forms::Panel^  panel4;
 	private: System::Windows::Forms::Panel^  panel3;
-	private: System::Windows::Forms::Label^  label4;
+
 	private: System::Windows::Forms::Label^  label3;
 	private: System::ComponentModel::IContainer^  components;
 			 /// <summary>
@@ -136,7 +136,6 @@ namespace DiplomaPCA
 				 this->panel2 = (gcnew System::Windows::Forms::Panel());
 				 this->panel4 = (gcnew System::Windows::Forms::Panel());
 				 this->panel3 = (gcnew System::Windows::Forms::Panel());
-				 this->label4 = (gcnew System::Windows::Forms::Label());
 				 this->label3 = (gcnew System::Windows::Forms::Label());
 				 this->statusStrip1->SuspendLayout();
 				 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
@@ -383,7 +382,7 @@ namespace DiplomaPCA
 				 this->checkBox2->AutoSize = true;
 				 this->checkBox2->Checked = true;
 				 this->checkBox2->CheckState = System::Windows::Forms::CheckState::Checked;
-				 this->checkBox2->Location = System::Drawing::Point(12, 180);
+				 this->checkBox2->Location = System::Drawing::Point(50, 4);
 				 this->checkBox2->Name = L"checkBox2";
 				 this->checkBox2->Size = System::Drawing::Size(56, 17);
 				 this->checkBox2->TabIndex = 15;
@@ -408,7 +407,6 @@ namespace DiplomaPCA
 				 this->panel2->Controls->Add(this->button1);
 				 this->panel2->Controls->Add(this->listBox1);
 				 this->panel2->Controls->Add(this->button2);
-				 this->panel2->Controls->Add(this->checkBox2);
 				 this->panel2->Controls->Add(this->button4);
 				 this->panel2->Dock = System::Windows::Forms::DockStyle::Left;
 				 this->panel2->Location = System::Drawing::Point(0, 0);
@@ -429,33 +427,24 @@ namespace DiplomaPCA
 				 // 
 				 // panel3
 				 // 
-				 this->panel3->Controls->Add(this->label4);
 				 this->panel3->Controls->Add(this->label3);
 				 this->panel3->Controls->Add(this->label1);
 				 this->panel3->Controls->Add(this->label2);
+				 this->panel3->Controls->Add(this->checkBox2);
 				 this->panel3->Dock = System::Windows::Forms::DockStyle::Top;
 				 this->panel3->Location = System::Drawing::Point(0, 0);
 				 this->panel3->Name = L"panel3";
 				 this->panel3->Size = System::Drawing::Size(106, 36);
 				 this->panel3->TabIndex = 18;
 				 // 
-				 // label4
-				 // 
-				 this->label4->AutoSize = true;
-				 this->label4->Location = System::Drawing::Point(65, 4);
-				 this->label4->Name = L"label4";
-				 this->label4->Size = System::Drawing::Size(37, 13);
-				 this->label4->TabIndex = 16;
-				 this->label4->Text = L"PSNR";
-				 // 
 				 // label3
 				 // 
 				 this->label3->AutoSize = true;
 				 this->label3->Location = System::Drawing::Point(0, 4);
 				 this->label3->Name = L"label3";
-				 this->label3->Size = System::Drawing::Size(38, 13);
+				 this->label3->Size = System::Drawing::Size(41, 13);
 				 this->label3->TabIndex = 15;
-				 this->label3->Text = L"Norma";
+				 this->label3->Text = L"Норма";
 				 // 
 				 // MainForm
 				 // 
@@ -468,7 +457,7 @@ namespace DiplomaPCA
 				 this->Controls->Add(this->statusStrip1);
 				 this->MinimumSize = System::Drawing::Size(771, 270);
 				 this->Name = L"MainForm";
-				 this->Text = L"PCA";
+				 this->Text = L"Пошук подібних зображень";
 				 this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 				 this->statusStrip1->ResumeLayout(false);
 				 this->statusStrip1->PerformLayout();
@@ -478,7 +467,6 @@ namespace DiplomaPCA
 				 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->EndInit();
 				 this->panel1->ResumeLayout(false);
 				 this->panel2->ResumeLayout(false);
-				 this->panel2->PerformLayout();
 				 this->panel4->ResumeLayout(false);
 				 this->panel4->PerformLayout();
 				 this->panel3->ResumeLayout(false);
@@ -533,7 +521,7 @@ namespace DiplomaPCA
 	{
 		if (run)
 		{
-			toolStripProgressBar1->Value = progress;
+			
 			TimeSpan ^ts = DateTime::Now - Time;
 			float que = (float)(progress / (ts->TotalSeconds + 0.0));
 			toolStripStatusLabel3->Text = que + " Зображень/с";
@@ -543,6 +531,7 @@ namespace DiplomaPCA
 		{
 			toolStripStatusLabel3->Text = ""; toolStripStatusLabel4->Text = "";
 		}
+		toolStripProgressBar1->Value = progress;
 		toolStripStatusLabel2->Text = progress + "/" + Files->Count;
 
 	}
@@ -694,11 +683,13 @@ namespace DiplomaPCA
 			FileInfo ^ fn = gcnew FileInfo(treeView1->SelectedNode->Text);
 			pictureBox1->ImageLocation = treeView1->SelectedNode->Text;
 			richTextBox1->Text = "";
-			richTextBox1->Text += "Назва	" + fn->Name + "\n";
-			richTextBox1->Text += "Тип	" + fn->Extension + "\n";
+			richTextBox1->Text += "Назва		" + fn->Name + "\n";
+			richTextBox1->Text += "Тип		" + fn->Extension + "\n";
 			richTextBox1->Text += "Створено	" + fn->CreationTime + "\n";
 			richTextBox1->Text += "Останній доступ	" + fn->LastAccessTime + "\n";
-			richTextBox1->Text += "Розмір	" + fn->Length + "\n";
+			long long size = fn->Length;
+			size >>= 10;
+			richTextBox1->Text += "Розмір		" + size   +" кб\n";
 
 		}
 		else
