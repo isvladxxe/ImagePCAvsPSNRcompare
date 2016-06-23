@@ -78,7 +78,7 @@ namespace DiplomaPCA {
 			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(240, 324);
+			this->pictureBox1->Size = System::Drawing::Size(240, 398);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -89,7 +89,7 @@ namespace DiplomaPCA {
 			this->pictureBox2->Dock = System::Windows::Forms::DockStyle::Right;
 			this->pictureBox2->Location = System::Drawing::Point(241, 0);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(240, 324);
+			this->pictureBox2->Size = System::Drawing::Size(240, 398);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
@@ -115,15 +115,15 @@ namespace DiplomaPCA {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(481, 324);
+			this->panel1->Size = System::Drawing::Size(481, 398);
 			this->panel1->TabIndex = 3;
 			// 
 			// richTextBox1
 			// 
 			this->richTextBox1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->richTextBox1->Location = System::Drawing::Point(0, 324);
+			this->richTextBox1->Location = System::Drawing::Point(0, 398);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(481, 104);
+			this->richTextBox1->Size = System::Drawing::Size(481, 30);
 			this->richTextBox1->TabIndex = 2;
 			this->richTextBox1->Text = L"";
 			// 
