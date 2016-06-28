@@ -742,7 +742,6 @@ namespace DiplomaPCA
 			treeView1->SelectedNode->Text, "",
 			MessageBoxButtons::YesNo) == System::Windows::Forms::DialogResult::Yes)
 		{
-
 			System::IO::File::Delete(treeView1->SelectedNode->Text);
 			treeView1->Nodes->Remove(treeView1->SelectedNode);
 		}
